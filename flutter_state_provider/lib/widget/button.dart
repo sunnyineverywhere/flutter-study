@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 class MainButton extends StatelessWidget {
   final String text;
   final void Function()? onPressed;
-  final Color color;
 
   MainButton({
     required this.text,
     required this.onPressed,
-    required this.color,
   });
 
   @override
