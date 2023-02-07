@@ -30,7 +30,9 @@ class UserList extends StatelessWidget {
               ),
               IconButton(
                   icon: const Icon(Icons.delete),
-                  onPressed: () => onDelete(users[index]))
+                  onPressed: () => print(users[index].name)
+                  //onDelete(users[index])
+                  )
             ],
           ),
         ),

@@ -14,10 +14,14 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  String? _name;
-  String? _city;
+  String? _name = '';
+  String? _city = '';
 
-  List<User> userList = [];
+  List<User> userList = [
+    User('sunny', 'seoul'),
+    User('siyeon', 'seoul'),
+    User('jiui', 'novi')
+  ];
 
   addUser(User user) {
     setState(() {
