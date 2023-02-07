@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_state_provider/screens/user_list_screen.dart';
 import 'package:flutter_state_provider/widget/button.dart';
 import 'package:flutter_state_provider/widget/input.dart';
+import 'package:flutter_state_provider/widget/user_list.dart';
 
 import '../model/user.dart';
 
@@ -82,7 +83,9 @@ class HomeState extends State<Home> {
                     },
                   ),
                 ],
-              )
+              ),
+              SizedBox(height: 20),
+              UserList(userList, deleteUser)
             ],
           ),
         ),

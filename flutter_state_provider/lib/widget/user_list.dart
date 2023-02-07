@@ -35,6 +35,7 @@ class UserList extends StatelessWidget {
           ),
         ),
       ),
+      itemCount: users.length,
     );
   }
 }
