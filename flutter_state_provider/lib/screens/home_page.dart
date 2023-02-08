@@ -17,11 +17,7 @@ class HomeState extends State<Home> {
   String? _name = '';
   String? _city = '';
 
-  List<User> userList = [
-    User('sunny', 'seoul'),
-    User('siyeon', 'seoul'),
-    User('jiui', 'novi')
-  ];
+  List<User> userList = [];
 
   addUser(User user) {
     setState(() {
@@ -29,8 +25,11 @@ class HomeState extends State<Home> {
     });
   }
 
-  deleteUser(User user) {
-    userList.removeWhere((_user) => _user.name == user.name);
+  deleteUser(int index) {
+    // ignore: no_leading_underscores_for_local_identifiers
+    setState(() {
+      userList.removeAt(index);
+    });
   }
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();

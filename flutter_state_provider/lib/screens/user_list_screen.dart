@@ -10,8 +10,15 @@ class UserListScreen extends StatefulWidget {
 class _UserListScreenState extends State<UserListScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("page"),
+    return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
+      appBar: AppBar(
+        title: const Text(
+          "Provider Demo",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+      body: Center(child: Text("user_list_screen")),
     );
   }
 }

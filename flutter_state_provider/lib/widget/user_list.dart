@@ -4,13 +4,14 @@ import 'package:flutter_state_provider/model/user.dart';
 
 class UserList extends StatelessWidget {
   final List<User> users;
-  final Function(User) onDelete;
+  final Function(int) onDelete;
 
   UserList(this.users, this.onDelete);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      itemCount: users.length,
       shrinkWrap: true,
       itemBuilder: (BuildContext context, int index) => Card(
         elevation: 8,
@@ -30,14 +31,11 @@ class UserList extends StatelessWidget {
               ),
               IconButton(
                   icon: const Icon(Icons.delete),
-                  onPressed: () => print(users[index].name)
-                  //onDelete(users[index])
-                  )
+                  onPressed: () => {print(index), onDelete(index)})
             ],
           ),
         ),
       ),
-      itemCount: users.length,
     );
   }
 }
