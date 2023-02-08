@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_state_provider/controller/user_notifier.dart';
 import 'package:flutter_state_provider/screens/home_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => UserNotifier()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

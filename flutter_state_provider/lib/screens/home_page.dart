@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_state_provider/controller/user_notifier.dart';
 import 'package:flutter_state_provider/screens/user_list_screen.dart';
 import 'package:flutter_state_provider/widget/button.dart';
 import 'package:flutter_state_provider/widget/input.dart';
 import 'package:flutter_state_provider/widget/user_list.dart';
+import 'package:provider/provider.dart';
 
 import '../model/user.dart';
 
@@ -17,25 +19,11 @@ class HomeState extends State<Home> {
   String? _name = '';
   String? _city = '';
 
-  List<User> userList = [];
-
-  addUser(User user) {
-    setState(() {
-      userList.add(user);
-    });
-  }
-
-  deleteUser(int index) {
-    // ignore: no_leading_underscores_for_local_identifiers
-    setState(() {
-      userList.removeAt(index);
-    });
-  }
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    UserNotifier userNotifier = Provider.of<UserNotifier>(context);
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
@@ -72,7 +60,7 @@ class HomeState extends State<Home> {
                     onPressed: () {
                       if (!_formKey.currentState!.validate()) return;
                       _formKey.currentState!.save();
-                      addUser(User(_name!, _city!));
+                      userNotifier.addUser(User(_name!, _city!));
                     },
                   ),
                   SizedBox(width: 8),
@@ -88,7 +76,7 @@ class HomeState extends State<Home> {
                 ],
               ),
               SizedBox(height: 20),
-              UserList(userList, deleteUser)
+              UserList()
             ],
           ),
         ),
