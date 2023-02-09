@@ -2,7 +2,6 @@ import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_state_provider/model/user.dart';
-import 'package:flutter_state_provider/widget/user_list.dart';
 
 class UserNotifier extends ChangeNotifier {
   List<User> _userList = [];
